@@ -30,7 +30,6 @@ export default class Directory extends Component {
           size: "large",
           id: 4,
           linkUrl: "shop/womens",
-          size: "large",
         },
         {
           title: "mens",
@@ -38,7 +37,6 @@ export default class Directory extends Component {
           size: "large",
           id: 5,
           linkUrl: "shop/mens",
-          size: "large",
         },
       ],
     };
@@ -46,9 +44,9 @@ export default class Directory extends Component {
   render() {
     return (
       <div className="directory-menu">
-        {this.state.sections.map(({ id, title, imageUrl, size }) => {
+        {this.state.sections.map(({ id, ...otherSectionProps }) => {
           return (
-            <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+            <MenuItem key={id} {...otherSectionProps} />
           );
         })}
       </div>
